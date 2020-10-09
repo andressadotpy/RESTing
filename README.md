@@ -1,5 +1,9 @@
 # Aplicação Django e API com Django Rest Framework
 
+[Link para a aplicação no Heroku](https://resting-with-django.herokuapp.com/)
+
+
+
 Após ter clonado o repositório da aplicação e ativar o virtualenvironment, é necessário instalar os requisitos utilizando o *pip*.
 
 ```bash
@@ -17,7 +21,7 @@ $ python manage.py migrate
 
 ## Estrutura do projeto
 
-A estrutura do projeto ficou no seguinte formato: `resting` é o projeto. Como um projeto pode ter várias aplicações, esse projeto possui `api` e `companies` como apps. 
+A estrutura do projeto ficou no seguinte formato. `resting` é o projeto. Como um projeto pode ter várias aplicações, esse projeto possui `api` e `companies` como apps. 
 
 ```.
 ├── api
@@ -146,6 +150,7 @@ $ python manage.py runserver
 # Melhorias para uma segunda versão
 
 - Corrigir bug no form pelo frontend.
+- Dividir o app companies em dois apps: companies e workers.
 
 - Arrumar para que apareça o nome das empresas de um trabalhador na API e não só a identificação da empresa e tornar mais user friendly no geral.
 - Fazer sistema de autenticação de usuários e ajustar permissões da aplicação/api por tipo de usuário.
