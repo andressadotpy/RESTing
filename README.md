@@ -123,7 +123,7 @@ Exemplo utilizando Django Rest Framework, mas que pode ser realizado com Postman
 
 `/api/new_company/`
 
-![Exemplo de requisição POST com Rest Framework](/home/andressa/MEGAsync/Code/djangorest/example_create_company.png)
+![Exemplo de requisição POST com Rest Framework](example_create_company.png)
 
 
 
