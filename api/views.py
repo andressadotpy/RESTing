@@ -37,6 +37,35 @@ def details_about_company(request, id):
     return Response(serializer.data)
 
 
+@api_view(['POST'])
+def create_new_company(request):
+    serializer = CompanySerializer(data=request.data)
+
+    if serializer.is_valid():
+        serializer.save()
+
+    return Response(serializer.data)
+
+
+@api_view(['POST'])
+def edit_company(request, id):
+    company = Company.objects.get(id=id)
+    serializer = CompanySerializer(instance=company, data=request.data)
+
+    if serializer.is_valid():
+        serializer.save()
+
+    return Response(serializer.data)
+
+
+@api_view(['DELETE'])
+def delete_company(request, id):
+    company = Company.objects.get(id=id)
+    company.delete()
+
+    return Response('Company was succesfully delete!')
+
+
 #### Worker related views
 
 @api_view(['GET'])
@@ -63,7 +92,7 @@ def create_new_worker(request):
     return Response(serializer.data)
 
 
-@api_view(['GET', 'POST'])
+@api_view(['POST'])
 def edit_worker(request, id):
     worker = Worker.objects.get(id=id)
     serializer = WorkerSerializer(instance=worker, data=request.data)
@@ -74,11 +103,11 @@ def edit_worker(request, id):
     return Response(serializer.data)
 
 
-@api_view(['GET', 'DELETE'])
+@api_view(['DELETE'])
 def delete_worker(request, id):
     worker = Worker.objects.get(id=id)
     worker.delete()
-        
+
     return Response('Worker was succesfully delete!')
 
 
