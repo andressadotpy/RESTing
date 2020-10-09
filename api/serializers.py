@@ -14,3 +14,5 @@ class WorkerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Worker
         fields = ('name', 'job_description', 'companies')
+
+
