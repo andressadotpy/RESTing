@@ -1,10 +1,7 @@
 from django.urls import path, include
 
-
-from .views import (api_overview, list_of_companies,
-                    list_of_workers, details_about_worker,
-                    details_about_company, create_new_worker,
-                    edit_worker, delete_worker, create_new_company,
+from .views import (api_overview, list_of_companies, list_of_workers, details_about_worker,
+                    details_about_company, create_new_worker, edit_worker, delete_worker, create_new_company,
                     edit_company, delete_company)
 
 
