@@ -23,19 +23,11 @@ def new_company(request):
 def new_worker(request):
 
     if request.POST:
-        print(request.POST)
         name = request.POST['name']
-        print(name)
         cpf = int(request.POST['cpf'])
-        print(cpf)
         address = request.POST['address']
-        print(address)
         job_description = request.POST['job_description']
-        print(job_description)
-        print(companies)
         companies = request.POST['companies']
-        print(companies)
-        print(type(companies))
         worker = Worker.objects.create(name=name, cpf=cpf, address=address, job_description=job_description)
         worker.save()   
         return redirect('index')
