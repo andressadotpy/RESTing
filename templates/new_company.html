@@ -9,20 +9,21 @@
                     <h2 class="title">Register company</h2>
                     <form method="POST">
                         {% csrf_token %}
+                        {{ form }}
                         <div class="row row-space">
                             <div class="col">
                                 <div class="input-group">
                                     <label class="label">Company name</label>
-                                    <input class="input--style-4" type="text" name="name">
+                                    <input class="input--style-4" type="text" name="name" value="{{ company.name }}">
                                 </div>
                                 <div class="input-group">
                                     <label class="label">CNPJ</label>
-                                    <input class="input--style-4" type="text" name="cnpj">
+                                    <input class="input--style-4" type="text" name="cnpj" value="{{ company.cnpj }}">
                                 </div>
                             </div>
                         </div>
                         <div class="p-t-15">
-                            <button class="btn btn--radius-2 btn-dark" type="submit">Submit</button>
+                            <button class="btn btn--radius-2 btn-dark" type="submit" value="OK" >Submit</button>
                         </div>
                     </form>
                 </div>

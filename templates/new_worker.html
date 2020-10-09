@@ -9,17 +9,18 @@
                     <h2 class="title">Register worker</h2>
                     <form method="POST">
                         {% csrf_token %}
+                        {{ form }}
                         <div class="row row-space">
                             <div class="col">
                                 <div class="input-group">
                                     <label class="label">Name</label>
-                                    <input class="input--style-4" type="text" name="first_name">
+                                    <input class="input--style-4" type="text" name="name" value="{{ worker.name }}">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="input-group">
                                     <label class="label">CPF</label>
-                                    <input class="input--style-4" type="text" name="last_name">
+                                    <input class="input--style-4" type="text" name="cpf" value="{{ worker.cpf }}">
                                 </div>
                             </div>
                         </div>
@@ -27,7 +28,7 @@
                             <div class="col">
                                 <div class="input-group">
                                     <label class="label">Address</label>
-                                    <input class="input--style-4" type="text" name="address">
+                                    <input class="input--style-4" type="text" name="address" value="{{ worker.address }}">
                                 </div>
                             </div>
                         </div>
@@ -35,13 +36,13 @@
                             <div class="col">
                                 <div class="input-group">
                                     <label class="label">Job description</label>
-                                    <input class="input--style-4" type="text" name="job_description">
+                                    <input class="input--style-4" type="text" name="job_description" value="{{ worker.job_description }}">
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlSelect2">Companies where she works</label>
-                            <select multiple class="form-control" id="exampleFormControlSelect2" name="companies">
+                            <select multiple class="form-control" id="exampleFormControlSelect2" name="companies" value="{{ worker.companies }}">
                                 {% for company in companies %}
                                     <option>{{ company }}</option>
                                 {% endfor %}
