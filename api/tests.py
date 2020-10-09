@@ -17,3 +17,19 @@ class TestAPICompanyRegistration(APITestCase):
         }
         response = self.client.post('/api/new_company/', company)
         self.assertEqual(response.status_code, 200)
+
+
+class TestAPIWorkerRegistration(APITestCase):
+
+    def test_registering_new_worker(self):
+        worker = {
+            'name': 'Worker Test',
+            'address': 'Address',
+            'job_description': 'This is a job description',
+            'companies': [
+                Company.objects.create(name='Company 1', cnpj=123456),
+                Company.objects.create(name='Company 2', cnpj=678910)
+            ]
+        }
+        response = self.client.post('/api/new_worker/', worker)
+        self.assertEqual(response.status_code, 200)
