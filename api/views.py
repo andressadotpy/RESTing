@@ -21,6 +21,7 @@ def api_overview(request):
     }
     return Response(api_urls)
 
+#### Company related views
 
 @api_view(['GET'])
 def list_of_companies(request):
@@ -28,6 +29,15 @@ def list_of_companies(request):
     serializer = CompanySerializer(companies, many=True)
     return Response(serializer.data)
 
+
+@api_view(['GET'])
+def details_about_company(request, id):
+    company = Company.objects.get(id=id)
+    serializer = CompanySerializer(company, many=False)
+    return Response(serializer.data)
+
+
+#### Worker related views
 
 @api_view(['GET'])
 def list_of_workers(request):
@@ -43,13 +53,33 @@ def details_about_worker(request, id):
     return Response(serializer.data)
 
 
-@api_view(['GET'])
-def details_about_company(request, id):
-    company = Company.objects.get(id=id)
-    serializer = CompanySerializer(company, many=False)
+@api_view(['POST'])
+def create_new_worker(request):
+    serializer = WorkerSerializer(data=request.data)
+
+    if serializer.is_valid():
+        serializer.save()
+
     return Response(serializer.data)
 
 
+@api_view(['GET', 'POST'])
+def edit_worker(request, id):
+    worker = Worker.objects.get(id=id)
+    serializer = WorkerSerializer(instance=worker, data=request.data)
+
+    if serializer.is_valid():
+        serializer.save()
+
+    return Response(serializer.data)
+
+
+@api_view(['GET', 'DELETE'])
+def delete_worker(request, id):
+    worker = Worker.objects.get(id=id)
+    worker.delete()
+        
+    return Response('Worker was succesfully delete!')
 
 
 
