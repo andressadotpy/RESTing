@@ -36,3 +36,21 @@ def list_of_workers(request):
     return Response(serializer.data)
 
 
+@api_view(['GET'])
+def details_about_worker(request, id):
+    worker = Worker.objects.get(id=id)
+    serializer = WorkerSerializer(worker, many=False)
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+def details_about_company(request, id):
+    company = Company.objects.get(id=id)
+    serializer = CompanySerializer(company, many=False)
+    return Response(serializer.data)
+
+
+
+
+
+
