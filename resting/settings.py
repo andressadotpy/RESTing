@@ -14,6 +14,14 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+ALLOWED_HOSTS = [
+    '0.0.0.0',
+    'localhost',
+    '127.0.0.1',
+    'resting-with-django.herokuapp.com'
+]
+
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -75,10 +83,12 @@ WSGI_APPLICATION = 'resting.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'resting',
-        'USER': 'postgres',
+        'NAME': 'df0jt6ohc3h7pl',
         'PASSWORD': '123',
-        'HOST': 'localhost'
+        'HOST': 'ec2-54-156-53-71.compute-1.amazonaws.com',
+        'PORT': 5432,
+        'USER': 'mjudzgkkfyxnpx',
+        'PASSWORD': 'cfe3bf9be06da6e69995e24cd25ff660072c5086997baff635acc51a3f6b9538'
     }
 }
 
