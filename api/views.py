@@ -11,13 +11,17 @@ from .serializers import CompanySerializer, WorkerSerializer
 def api_overview(request):
     api_urls = {
         'Companies': '/companies/',
+        'Details about company': '/company/<int:id>/',
+        'Edit company': '/edit_company/<int:id>/',
+        'Create company': '/new_company/',
+        'Delete company': '/delete_company/',
+
+
         'Workers': '/workers/',
-        'Details about worker': '/worker/<str:name>/',
-        'Details about company': '/company/<str:name>/',
-        'Create company': '/company_create/',
-        'Create worker': '/worker_create/',
-        'Delete company': '/company_delete/',
-        'Detele worker': '/worker_delete'
+        'Details about worker': '/worker/<int:id>/',
+        'Edit worker': '/edit_worker/<int:id>/',
+        'Create worker': '/new_worker/',
+        'Delete worker': '/worker_delete/'
     }
     return Response(api_urls)
 
