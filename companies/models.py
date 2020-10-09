@@ -1,6 +1,8 @@
 from django.db import models
 
+
 class Company(models.Model):
+
     name = models.CharField(max_length=200)
     cnpj = models.IntegerField()
 
@@ -10,6 +12,7 @@ class Company(models.Model):
 
 
 class Worker(models.Model):
+
     name = models.CharField(max_length=200)
     cpf = models.IntegerField()
     address = models.CharField(max_length=300)
