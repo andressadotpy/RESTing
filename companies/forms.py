@@ -13,14 +13,7 @@ class CompanyForm(forms.Form):
 
 
 class WorkerForm(forms.Form):
-
     class Meta:
         model = Worker
-
-
-    name = forms.CharField(max_length=200)
-    cpf = forms.IntegerField()
-    address = forms.CharField(max_length=300)
-    job_description = forms.CharField(max_length=500)
-    companies = forms.ModelMultipleChoiceField(queryset=Company.objects.all())
+        fields = ('name', 'cpf', 'address', 'job_description', 'companies')
 

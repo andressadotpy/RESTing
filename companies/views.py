@@ -23,7 +23,7 @@ def new_company(request):
 def new_worker(request):
 
     if request.POST:
-        form = WorkerForm(request.POST)
+        form = WorkerForm(data=request.POST)
         if form.is_valid():
             name = form.cleaned_data['name']
             cpf = form.cleaned_data['cpf']
