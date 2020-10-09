@@ -23,14 +23,19 @@ def new_company(request):
 def new_worker(request):
 
     if request.POST:
-        name = request.POST['name']
-        cpf = int(request.POST['cpf'])
-        address = request.POST['address']
-        job_description = request.POST['job_description']
-        companies = request.POST['companies']
-        worker = Worker.objects.create(name=name, cpf=cpf, address=address, job_description=job_description)
-        worker.save()   
-        return redirect('index')
+        form = WorkerForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            cpf = form.cleaned_data['cpf']
+            address = form.cleaned_data['address']
+            job_description = form.cleaned_data['job_description']
+            companies = form.cleaned_data['companies']
+            print(companies)
+            worker = Worker.objects.create(name=name, cpf=cpf, address=address, job_description=job_description)
+            worker.save()
+            worker.companies.set(companies)
+            print(worker)
+            return redirect('index')
     
 
     form = WorkerForm()

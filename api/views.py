@@ -22,12 +22,17 @@ def api_overview(request):
     return Response(api_urls)
 
 
-class CompaniesAPIView(generics.ListAPIView):
-    queryset = Company.objects.all()
-    serializer_class = CompanySerializer
+@api_view(['GET'])
+def list_of_companies(request):
+    companies = Company.objects.all()
+    serializer = CompanySerializer(companies, many=True)
+    return Response(serializer.data)
 
 
-class WorkersAPIView(generics.ListAPIView):
-    queryset = Worker.objects.all()
-    serializer_class = WorkerSerializer
+@api_view(['GET'])
+def list_of_workers(request):
+    workers = Worker.objects.all()
+    serializer = WorkerSerializer(workers, many=True)
+    return Response(serializer.data)
+
 
